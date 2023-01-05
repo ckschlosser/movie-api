@@ -5,16 +5,25 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import NavLinks from "./NavLinks";
 import SideBar from "./SideBar";
 import SearchBar from "./SearchBar";
+import { useTransition, animated } from "@react-spring/web";
 
 const Nav = () => {
   const [showSideBar, setShowSideBar] = useState(false);
 
-  let sideBar;
+  let sideBar = (
+    <div className="fixed top-0 left-0 w-64 h-screen bg-primaryTan z-50 shadow-inner shadow-primaryBlue -translate-x-full">
+      <SideBar />
+    </div>
+  );
   let menuMask;
   let close;
 
   if (showSideBar) {
-    sideBar = <SideBar />;
+    sideBar = (
+      <div className="fixed top-0 left-0 w-64 h-screen bg-primaryTan z-50 shadow-inner shadow-primaryBlue translate-x-0 ease-in duration-300">
+        <SideBar />
+      </div>
+    );
     menuMask = (
       <div
         className="bg-primaryTan/30 fixed top-0 left-0 w-full h-full z-40"
