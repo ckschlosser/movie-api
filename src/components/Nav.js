@@ -1,47 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faM, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import NavLinks from "./NavLinks";
+import SideBar from "./SideBar";
+import SearchBar from "./SearchBar";
 
 const Nav = () => {
-  const navItems = [
-    { link: "Popular", href: "#" },
-    { link: "Action", href: "#" },
-    { link: "Horror", href: "#" },
-    { link: "Comedy", href: "#" },
-    { link: "Kids", href: "#" },
-  ];
+  const [showSideBar, setShowSideBar] = useState(false);
+
+  let sideBar;
+  let menuMask;
+  let close;
+
+  if (showSideBar) {
+    sideBar = <SideBar />;
+    menuMask = (
+      <div
+        className="bg-primaryTan/30 fixed top-0 left-0 w-full h-full z-40"
+        onClick={() => setShowSideBar(false)}
+      ></div>
+    );
+    close = (
+      <FontAwesomeIcon
+        icon={faXmark}
+        className="absolute top-3 left-3 text-2xl z-[60] cursor-pointer"
+        onClick={() => setShowSideBar(false)}
+      />
+    );
+  }
+
+  showSideBar
+    ? (document.body.style.overflow = "hidden")
+    : (document.body.style.overflow = "auto");
 
   return (
     <>
       <nav className="w-full h-16 bg-secondaryBlue flex justify-around items-center">
-        <div className="hidden md:flex md:">
-          <ul className="flex">
-            <li className="text-secondaryTan mr-4">
-              <a
-                href="#"
-                className="text-md px-2 py-1 hover:bg-primaryBlue hover:rounded-2xl hover:duration-300 "
-              >
-                Popular
-              </a>
-            </li>
-          </ul>
+        <NavLinks />
+        <div className="md:hidden cursor-pointer">
+          <FontAwesomeIcon
+            icon={faBars}
+            className="text-3xl"
+            onClick={() => setShowSideBar(true)}
+          />
         </div>
-        <div className="md:hidden">
-          <FontAwesomeIcon icon={faBars} className="text-3xl" />
-        </div>
-        <form>
-          <div className="flex">
-            <input
-              type="text"
-              placeholder="Enter Movie Name"
-              className="outline-0 border-1 border-secondaryBlue border-solid rounded-tl-3xl rounded-bl-3xl py-1 px-3 text-secondaryTan bg-primaryBlue shadow-inner shadow-secondaryBlue"
-            />
-            <button className="outline-0 border-1 border-secondaryBlue border-solid rounded-tr-3xl rounded-br-3xl py-1 px-2 text-secondaryTan bg-secondaryBlue shadow-inner shadow-primaryBlue">
-              <FontAwesomeIcon icon={faMagnifyingGlass} className="" />
-            </button>
-          </div>
-        </form>
+        <SearchBar />
+        {close}
+        {menuMask}
+        {sideBar}
       </nav>
     </>
   );

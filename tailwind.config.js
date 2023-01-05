@@ -8,7 +8,11 @@ module.exports = {
       primaryTan: "#EAE3D2",
       secondaryTan: "#F9F5EB",
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        innerXL: "inset 0px 0px 8px 8px rgb(28 56 121);",
+      },
+    },
   },
   plugins: [],
 };
