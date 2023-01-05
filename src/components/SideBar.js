@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 const SideBar = () => {
+  const navLinks = [
+    { name: "Popular", href: "#" },
+    { name: "Action", href: "#" },
+    { name: "Horror", href: "#" },
+    { name: "Comedy", href: "#" },
+    { name: "Kids", href: "#" },
+  ];
+
+  const links = navLinks.map((link, index) => (
+    <li
+      key={index}
+      className="text-2xl border-t-2 border-primaryBlue w-full text-center py-3 cursor-pointer hover:bg-secondaryTan hover:shadow-innerXL hover:shadow-primaryBlue hover:duration-700"
+    >
+      {link.name}
+    </li>
+  ));
+
   return (
-    <div className="fixed top-0 left-0 w-64 h-screen bg-primaryTan z-50 shadow-inner shadow-primaryBlue">
-      <ul className="flex mt-16 justify-center items-center">
-        <li className="text-2xl border-t-2 border-primaryBlue w-full text-center py-3 cursor-pointer hover:bg-secondaryTan hover:shadow-innerXL hover:shadow-primaryBlue hover:duration-700">
-          Popular
-        </li>
-      </ul>
-    </div>
+    <ul className="flex flex-col mt-16 justify-center items-center border-b-2 border-primaryBlue">
+      {links}
+    </ul>
   );
 };
 
