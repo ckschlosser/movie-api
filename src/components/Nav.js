@@ -5,7 +5,6 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import NavLinks from "./NavLinks";
 import SideBar from "./SideBar";
 import SearchBar from "./SearchBar";
-import { useTransition, animated } from "@react-spring/web";
 
 const Nav = () => {
   const [showSideBar, setShowSideBar] = useState(false);
@@ -46,7 +45,11 @@ const Nav = () => {
   return (
     <>
       <nav className="w-full h-16 bg-secondaryBlue flex justify-around items-center">
-        <NavLinks />
+        <div className="hidden md:flex md:">
+          <ul className="flex">
+            <NavLinks />
+          </ul>
+        </div>
         <div className="md:hidden cursor-pointer">
           <FontAwesomeIcon
             icon={faBars}
