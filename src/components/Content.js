@@ -5,7 +5,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faM, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-let API_key = "&api_key=fc5b37a75c326abb12430a31d3d2172b";
+let API_key = process.env.React_App_TMDB_API;
 let base_url = "https://api.themoviedb.org/3";
 let url = base_url + "/discover/movie?sort_by=popularity.desc" + API_key;
 
