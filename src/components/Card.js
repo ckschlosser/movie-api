@@ -1,7 +1,7 @@
 import React from "react";
 
 const Card = (movie) => {
-  console.log(movie.info);
+  // console.log(movie.info);
   let img_path = "https://image.tmdb.org/t/p/w500";
   return (
     <>
@@ -13,7 +13,7 @@ const Card = (movie) => {
         />
         <div className="flex flex-col justify-center items-center group/card">
           <div className="w-full p-4 flex items-center justify-around ">
-            <h4 className="w-40 items-center text-center">
+            <h4 className="w-40 items-center text-center text-lg">
               {movie.info.title}
             </h4>
             <p className="bg-primaryBlue w-12 h-12 rounded-[50%] flex justify-center items-center text-secondaryTan font-bold border border-primaryBlue shadow-inner shadow-black/50 absolute right-1 bottom-1">
