@@ -33,36 +33,6 @@ const Content = () => {
 
     setUrl(url);
   };
-  // const getData = (movieType) => {
-  //   if (movieType == "Popular") {
-  //     url = base_url + "/discover/movie?sort_by=popularity.desc" + API_key;
-  //   }
-  //   if (movieType == "Theatre") {
-  //     url =
-  //       base_url +
-  //       "/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22" +
-  //       API_key;
-  //   }
-  //   if (movieType == "Drama") {
-  //     url =
-  //       base_url +
-  //       "/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10" +
-  //       API_key;
-  //   }
-  //   if (movieType == "Comedy") {
-  //     url =
-  //       base_url +
-  //       "/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc" +
-  //       API_key;
-  //   }
-  //   if (movieType == "Kids") {
-  //     url =
-  //       base_url +
-  //       "/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc" +
-  //       API_key;
-  //   }
-  //   setUrl(url);
-  // };
 
   const searchMovie = (event) => {
     if (event.key == "Enter") {
