@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faM, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import Info from "./movieInfoConfig.json";
 
 let API_key = process.env.React_App_TMDB_API;
 let base_url = "https://api.themoviedb.org/3";
@@ -25,35 +26,43 @@ const Content = () => {
   }, [url_set]);
 
   const getData = (movieType) => {
-    if (movieType == "Popular") {
-      url = base_url + "/discover/movie?sort_by=popularity.desc" + API_key;
+    const found = Info.movieInfo.find((element) => element.genre == movieType);
+    if (found) {
+      url = base_url + found.path + API_key;
     }
-    if (movieType == "Theatre") {
-      url =
-        base_url +
-        "/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22" +
-        API_key;
-    }
-    if (movieType == "Drama") {
-      url =
-        base_url +
-        "/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10" +
-        API_key;
-    }
-    if (movieType == "Comedy") {
-      url =
-        base_url +
-        "/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc" +
-        API_key;
-    }
-    if (movieType == "Kids") {
-      url =
-        base_url +
-        "/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc" +
-        API_key;
-    }
+
     setUrl(url);
   };
+  // const getData = (movieType) => {
+  //   if (movieType == "Popular") {
+  //     url = base_url + "/discover/movie?sort_by=popularity.desc" + API_key;
+  //   }
+  //   if (movieType == "Theatre") {
+  //     url =
+  //       base_url +
+  //       "/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22" +
+  //       API_key;
+  //   }
+  //   if (movieType == "Drama") {
+  //     url =
+  //       base_url +
+  //       "/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10" +
+  //       API_key;
+  //   }
+  //   if (movieType == "Comedy") {
+  //     url =
+  //       base_url +
+  //       "/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc" +
+  //       API_key;
+  //   }
+  //   if (movieType == "Kids") {
+  //     url =
+  //       base_url +
+  //       "/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc" +
+  //       API_key;
+  //   }
+  //   setUrl(url);
+  // };
 
   const searchMovie = (event) => {
     if (event.key == "Enter") {

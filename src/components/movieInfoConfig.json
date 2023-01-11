@@ -1,0 +1,24 @@
+{
+  "movieInfo": [
+    {
+      "genre": "Popular",
+      "path": "/discover/movie?sort_by=popularity.desc"
+    },
+    {
+      "genre": "Theatre",
+      "path": "/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22"
+    },
+    {
+      "genre": "Drama",
+      "path": "/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10"
+    },
+    {
+      "genre": "Comedy",
+      "path": "/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc"
+    },
+    {
+      "genre": "Kids",
+      "path": "/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc"
+    }
+  ]
+}
